@@ -11,10 +11,10 @@ app.use(cors());
 app.use(express.json());
 
 app.post("/", async (req, res) => {
-  const { content } = req.body;
+  const { element } = req.body;
 
   try {
-    await pool.query("INSERT INTO elements (content) VALUES ($1)", [content]);
+    await pool.query("INSERT INTO elements (content) VALUES ($1)", [element]);
   } catch (err) {
     console.log("Error on create element\n", err);
     res.status(500).send("Error on create element");
