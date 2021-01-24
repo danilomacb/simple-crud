@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 interface IElement {
-  id: number;
+  id: number & string;
   content: string;
 }
 
@@ -41,7 +41,10 @@ function App() {
     }
   }
 
-  async function update(e: React.KeyboardEvent & React.ChangeEvent<HTMLInputElement>, id: number) {
+  async function update(
+    e: React.KeyboardEvent & React.ChangeEvent<HTMLInputElement>,
+    id: number & string
+  ) {
     if (e.key === "Enter") {
       try {
         await axios.put(`http://localhost:3001/${id}`, { content: e.target.value });
@@ -55,7 +58,7 @@ function App() {
     }
   }
 
-  async function remove(id: number) {
+  async function remove(id: number & string) {
     try {
       await axios.delete(`http://localhost:3001/${id}`);
     } catch (err) {
