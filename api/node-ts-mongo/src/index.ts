@@ -18,7 +18,7 @@ app.post("/", async (req, res) => {
     return;
   }
 
-  res.status(200).send("Element created");
+  res.status(201).send("Element created");
 });
 
 app.get("/", async (req, res) => {
