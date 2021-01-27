@@ -45,11 +45,11 @@ async function list() {
     (element) =>
       (elementsInputs += `
         <div class="inputGroup">
-          <button onClick={remove(${element.id})}>X</button>
+          <button onClick={remove("${element.id}")}>X</button>
           <input
             type="text"
             value=${element.content}
-            onkeyup="update(event, ${element.id})"
+            onkeyup="update(event, '${element.id}')"
           />
         </div>
       `)
